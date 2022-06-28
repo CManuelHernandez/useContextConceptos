@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
-import { Acerca } from "./componentes/Acerca";
-import { Articulos } from "./componentes/Articulos";
-import { Contacto } from "./componentes/Contacto";
-import { Inicio } from "./componentes/Inicio";
-import { Login } from "./componentes/Login";
+import { Acerca } from "../componentes/Acerca";
+import { Articulos } from "../componentes/Articulos";
+import { Contacto } from "../componentes/Contacto";
+import { Inicio } from "../componentes/Inicio";
+import { Login } from "../componentes/Login";
 
 export const AppRouter = () => {
   return (
