@@ -32,7 +32,7 @@ export const AppRouter = () => {
               <NavLink to="/contacto">Contacto</NavLink>
             </li>
 
-            {usuario.nick !== null ? (
+            {usuario.hasOwnProperty("nick") && usuario.nick !== null ? (
               <>
                 <li>
                   <NavLink to="/">{usuario.nick}</NavLink>
@@ -42,11 +42,7 @@ export const AppRouter = () => {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      setUsuario({
-                        nick: null,
-                        nombre: "Manuel",
-                        web: "portafolio.es",
-                      });
+                      setUsuario({});
                     }}
                   >
                     Cerrar Session
