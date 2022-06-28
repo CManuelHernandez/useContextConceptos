@@ -8,9 +8,9 @@ export const Contacto = () => {
     <div>
       <h1>Contacto</h1>
       <p>Página de Contacto</p>
-      <p>
+      {/* <p>
         Valor compartido: <strong>{JSON.stringify(datoDesdeElContexto)}</strong>
-      </p>
+      </p> */}
     </div>
   );
 };

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
 import { Acerca } from "../componentes/Acerca";
 import { Articulos } from "../componentes/Articulos";
 import { Contacto } from "../componentes/Contacto";
 import { Inicio } from "../componentes/Inicio";
 import { Login } from "../componentes/Login";
+import { PruebaContext } from "../context/PruebaContext";
 
 export const AppRouter = () => {
+  const { usuario, setUsuario } = useContext(PruebaContext);
+
   return (
     <BrowserRouter>
       <header className="header">
@@ -28,9 +31,33 @@ export const AppRouter = () => {
             <li>
               <NavLink to="/contacto">Contacto</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Identificarse</NavLink>
-            </li>
+
+            {usuario.nick !== null ? (
+              <>
+                <li>
+                  <NavLink to="/">{usuario.nick}</NavLink>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setUsuario({
+                        nick: null,
+                        nombre: "Manuel",
+                        web: "portafolio.es",
+                      });
+                    }}
+                  >
+                    Cerrar Session
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li>
+                <NavLink to="/login">Identificarse</NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
